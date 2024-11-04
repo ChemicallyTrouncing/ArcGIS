@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish StoryMap Section</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.24/esri/css/main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 800px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        #viewDiv {
+            height: 400px;
+            width: 100%;
+        }
+        .footer {
+            padding: 10px;
+            text-align: center;
+            background-color: #2c3e50;
+            color: white;
+        }
+    </style>
+    <script src="https://js.arcgis.com/4.24/"></script>
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView"
+        ], function(Map, MapView) {
+            var map = new Map({
+                basemap: "streets-navigation-vector"
+            });
+
+            var view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [-100.33, 30.5], // longitude, latitude
+                zoom: 4
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Explore the Map!</h1>
+        <div id="viewDiv"></div>
+        <div class="footer">© 2024 Your Name or Organization</div>
+    </div>
+</body>
+</html>
